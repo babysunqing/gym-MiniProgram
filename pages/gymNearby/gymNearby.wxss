@@ -1,0 +1,46 @@
+.Container{
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+.gymContainer{
+  width: 100%;
+  height: auto;
+  padding: 30rpx;
+  background-color: #fff;
+  border-top: 1rpx #e0e0e0 solid;
+}
+image{
+  width: 160rpx;
+  height: 122rpx;
+  float: left;
+  background-color: #eee;
+  border-radius: 10rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+}
+.right{
+  float: left
+}
+.title{
+  font-size:30rpx;
+  color: #5e6879;
+  display: block
+}
+.location{
+  height: 30rpx;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: #768398;
+  display: block;
+  margin-top: 28rpx;
+  float: left
+}
+.gymContainer .more{
+  font-weight: bold;
+  color: #eab519;
+  font-size: 30rpx;
+  float: right;
+  margin-right: 30rpx;
+  line-height: 122rpx;
+}

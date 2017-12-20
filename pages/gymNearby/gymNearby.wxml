@@ -1,0 +1,12 @@
+<!--pages/gymNearby.wxml-->
+<view class="container">
+  <view bindtap="linktoGymDetail" data-storeId="{{item.storeId}}" class="gymContainer" wx:for="{{ storeList }}"                         wx:key="item">
+    <image src="{{ item.showImg }}" />
+    <view class="right">
+      <text class="title">{{ item.storeName }}</text>
+      <text class="location" style="width: 200rpx;">{{ item.address}} </text>
+      <text class="location"> 距离：{{item.distances}} 千米</text>
+    </view>
+    <text class="more iconfont icon-gengduo"></text>
+  </view>
+</view>

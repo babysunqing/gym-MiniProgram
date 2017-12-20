@@ -1,0 +1,117 @@
+.modal{
+  /* background-color: #eee;
+  background-color: #eab519; */
+}
+.modal .bg{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0
+}
+.modal .logo{
+  width: 240rpx;
+  height: 240rpx;
+  margin-left: 30%;
+}
+.modalTitle{
+  display: block;
+  text-align: center;
+  font-size: 36rpx;
+  color: #333;
+}  
+text{
+  text-align: center;
+  padding-top: 10px
+}
+.carouselFigure{
+  width: 100%;
+  height: 410rpx;
+}
+.carouselFigure .show{
+  width: 100%;
+  height: 100%;
+}
+.carouselFigure .wx-swiper-dot{
+    width:14rpx;
+    height: 14rpx;  
+    margin-bottom: 30rpx;
+    display: inline-flex; 
+    justify-content:space-between; 
+}
+.carouselFigure .wx-swiper-dot::before{
+    content: '';
+    flex-grow: 1;  
+    background: #ccc;
+    border-radius: 14rpx;
+ }
+.carouselFigure .wx-swiper-dot-active::before{
+    background:#eab519;   
+}
+
+
+.brand .wx-swiper-dot{
+    width:14rpx;
+    height: 14rpx;  
+    margin-bottom: 30rpx;
+    display: inline-flex; 
+    justify-content:space-between; 
+}
+.brand .wx-swiper-dot::before{
+    content: '';
+    flex-grow: 1;  
+    background: #ccc;
+    border-radius: 14rpx;
+ }
+.brand .wx-swiper-dot-active::before{
+    background:#eab519;   
+}
+
+.titleContainer {
+  width: 100%;
+  height: 88rpx;
+  line-height: 48rpx; 
+  background-color: #fff; 
+  font-size: 30rpx;
+}
+.titleContainer .titleText {
+  margin-bottom: 20rpx;
+  color: #eab519;
+  float: left;
+  margin-left: 14rpx; 
+}
+.titleContainer .location{
+  font-weight: bold;
+  color: #eab519;
+  font-size: 30rpx;
+  float:left;
+  margin-left: 30rpx; 
+  line-height: 50rpx;
+}
+.titleContainer .more{
+  font-weight: bold;
+  color: #eab519;
+  font-size: 30rpx;
+  float: right;
+  margin-right: 36rpx;
+  line-height: 48rpx;
+}
+.brand{
+  width: 100%;
+  height: 300rpx;
+  margin-top: 24rpx;
+  padding: 30rpx;
+  text-align: center;
+  background-color: #fff;
+}
+swiper-item{
+  margin-top: 24rpx;
+  margin-bottom: 36rpx;
+}
+.brand .logo{
+  width: 180rpx;
+  height: 180rpx;
+  margin-left: 4.5%;
+  margin-right: 4.5%;
+}

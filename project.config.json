@@ -1,0 +1,51 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.5.3",
+	"appid": "wx5834979d26ab7d30",
+	"projectname": "wx",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "自定义",
+					"pathName": "pages/openCard/openCard",
+					"query": "user_pay_appid=wx882a13e7db7a35cb",
+					"scene": "1037",
+					"referrerInfo": {
+						"appId": "wx5834979d26ab7d30",
+						"extraData": "1"
+					}
+				},
+				{
+					"id": 1,
+					"name": "自定义",
+					"pathName": "pages/openCard/openCard",
+					"query": "user_pay_appid=wx882a13e7db7a35cb",
+					"scene": "1038",
+					"referrerInfo": {
+						"appId": "wx882a13e7db7a35cb",
+						"extraData": "1"
+					}
+				}
+			]
+		}
+	}
+}

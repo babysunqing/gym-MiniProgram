@@ -1,0 +1,109 @@
+.container{
+  padding: 30rpx 29rpx 0 29rpx;
+}
+.cardContainer{
+  width:692rpx;
+  height: auto;
+}
+.left{
+  width: 70%;
+  float: left;
+  position: relative;
+  padding-top: 36rpx;
+  padding-bottom: 36rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.right{
+  width:30%;
+  height: 229rpx;
+  float: right;
+  background-color: #eab519;
+  font-size: 36rpx;
+  color: #fff;
+  line-height: 229rpx;
+  text-align: center;
+  position: relative;
+  border-radius: 10rpx;
+}
+.pass{
+  background-color: #ccc;
+}
+.cro_right_top,.cro_right_bottom,.cro_left_top,.cro_left_bottom{
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  z-index: 1;
+  background-color: #f5f5f5;
+}
+.cro_right_top,.cro_right_bottom{
+  float: right
+}
+.cro_right_top{
+  top: -1px;
+  right: -1px;
+  border-radius:0px 0px 0px 7px;
+}
+.cro_right_bottom{
+  right: -1px;
+  bottom: -1px;
+  border-radius:7px 0px 0px 0px;
+}
+.cro_left_top{
+  top: -1px;
+  left: -1px;
+  border-radius:0px 0px 7px 0px;
+}
+.cro_left_bottom{
+  left: -1px;
+  bottom: -1px;
+  border-radius:0px 7px 0px 0px;
+}
+.title{
+  margin-left: 46rpx;
+  margin-bottom: 20rpx;
+  font-size: 48rpx;
+  color: #eab519;
+}
+.title2{
+  margin-left: 46rpx;
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 6rpx;
+}
+.time{
+  margin-left: 46rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+.detailContainer{
+  width:692rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 1rpx  #e5e5e5;
+  margin-top: 28rpx;
+  padding-top: 26rpx; 
+}
+ .detailContainer .line{
+  width: 7rpx;
+  height: 32rpx;
+  display: block;
+  float: left;
+  border-radius: 6rpx;
+  background-color: #eab519;
+  margin-left: 31rpx;
+  margin-right: 12rpx;
+}
+.detailContainer .title{
+  font-size: 30rpx;
+  color: #333;
+  line-height: 30rpx;
+}
+.detailContainer .detail{
+  height: auto;
+  font-size: 26rpx;
+  color: #999;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-bottom: 40rpx;
+} 

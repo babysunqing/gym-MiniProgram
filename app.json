@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/my/my",
+    "pages/gymDetail/gymDetail",
+    "pages/myCardHolder/myCardHolder",
+    "pages/getCard/getCard",
+    "pages/gymNearby/gymNearby",
+    "pages/cardDetail/cardDetail",
+    "pages/openCard/openCard",
+    "pages/location/location"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "威尔仕",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor":"#eab519",
+    "color":"#b3b3b3",
+    "backgroundColor":"#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/tab_icon_home_n.png",
+        "selectedIconPath": "img/tab_icon_home_s.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "img/tab_icon_my_n.png",
+        "selectedIconPath": "img/tab_icon_my_s.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug":true
+}

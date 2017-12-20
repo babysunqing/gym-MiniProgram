@@ -1,0 +1,60 @@
+.container{
+  width: 100%;
+  padding-left: 29rpx;
+  padding-right: 29rpx;
+  padding-top: 30rpx;
+}
+.cardContainer{
+  width:100%;
+  height: 362rpx;
+  margin-bottom: 28rpx;
+}
+.background {
+  width: 100%;
+  height: 362rpx;
+}
+.content{
+  width: 100%;
+   position: absolute; 
+  z-index: 1
+}
+.logo{
+  width: 86rpx;
+  height: 86rpx;
+  margin-top: 20rpx;
+  margin-left: 21rpx;
+  margin-right: 18rpx;
+  display: block;
+  float: left;
+  background-color: #fff;
+  border-radius: 86px;
+}
+.logoName{
+  font-size: 36rpx;
+  color: #fff;
+  line-height: 135rpx;
+  letter-spacing: 3rpx;
+}
+.cardName{
+  font-size: 60rpx;
+  color: #fff;
+  display: block;
+  position: absolute; 
+  right: 90rpx; 
+  top:182rpx;
+  letter-spacing: 3rpx;
+}
+.time{
+  font-size: 26rpx;
+  color: #999;
+  position: absolute;
+  top: 307rpx;
+  left: 31rpx;
+}
+.getCard{
+  font-size: 26rpx;
+  color: #999;
+  position: absolute;
+  top: 307rpx;
+  right: 95rpx;
+}

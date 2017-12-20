@@ -1,0 +1,10 @@
+<!--pages/openCard.wxml-->
+<view class="container">
+  <view class="card">
+    <view class="logo"><image class="logo" :src=""></image> </view>
+    <text>威尔仕健身</text>
+    <view class="title">体验券</view>
+  </view>
+  <button style="background: #eab519; border-color:#eab519" bindtap="getCard">领取到卡包</button>
+   <!-- <view class="bottom" bindtap="linktoMyCardHolder">查看已领取的体验券</view>   -->
+</view>

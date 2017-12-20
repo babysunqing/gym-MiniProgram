@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<view class="container">
+<!--     
+  <modal class="modal" hidden="{{hidden}}" confirm-text="立即领取" no-cancel="true">
+      <image class="bg" src='../../img/popover.png' />
+      <image class='logo' src='../../img/img_head.png' />
+      <text class='modalTitle'>体验券</text>
+      <text  class='modalText'>今日走8000步即可领券</text>
+      <button>立即领取</button
+  </modal> -->
+ 
+  <swiper class="carouselFigure" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{ listData.show }}" wx:key="unique">
+      <swiper-item>
+        <image class="show" src="{{item}}" class="slide-image" style="width:100%;" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view bindtap="linktoGymNearby" class="titleContainer">
+    <text class="location iconfont icon-dingwei" style="color:#eab519"></text>
+    <text class="titleText">附近的健身房</text>
+    <text class="more iconfont icon-gengduo"></text>
+  </view>
+
+  <view class="brand">
+    <text>威尔仕品牌</text>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block>
+        <swiper-item wx:for="{{ [1,2] }}" wx:key="unique">
+              <image class="logo" src="{{ listData.brand[item*3-3].brandLogo }}" class="slide-image" style="width: 180rpx;height: 180rpx;margin-left: 4.5%;margin-right: 4.5%;" /> 
+              <image class="logo" src="{{ listData.brand[item*3-2].brandLogo  }}" class="slide-image" style="width: 180rpx;height: 180rpx;margin-left: 4.5%;margin-right: 4.5%;"/> 
+              <image class="logo" src="{{ listData.brand[item*3-1].brandLogo  }}" class="slide-image" style="width: 180rpx;height: 180rpx;margin-left: 4.5%;margin-right: 4.5%;" /> 
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+</view>

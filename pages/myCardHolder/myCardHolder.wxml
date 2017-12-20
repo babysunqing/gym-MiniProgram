@@ -1,0 +1,26 @@
+<!--pages/my.wxml-->
+<view class="container">
+
+  <view class="cardContainer" bindtap='linktoCardDetail' data-index="{{index}}" wx:for="{{ list }}"  wx:key="unique">
+    <view class="left">
+      <view class="title">{{ item.ticketinfo.title}}</view>
+      <view class="title2">{{item.ticketinfo.brandName }}</view>
+      <view class="time">{{ item.ticketinfo.beginTime }}至{{ item.ticketinfo.endTime }}</view>
+      <view class="cro_right_top"></view>
+      <view class="cro_right_bottom"></view> 
+    </view>
+    <view class="right pass" wx:if="{{item.ticketinfo.status == '已过期'}}">{{ item.ticketinfo.status}}
+       <view class="cro_left_top"></view> 
+      <view class="cro_left_bottom"></view>
+    </view>
+    <view class="right" wx:elif="{{item.ticketinfo.status == '可使用'}}">{{ item.ticketinfo.status}}  
+       <view class="cro_left_top"></view>
+      <view class="cro_left_bottom"></view> 
+     </view>  
+     <view class="right" wx:elif="{{item.ticketinfo.status == day}}">剩{{ item.ticketinfo.status}}天
+      <view class="cro_left_top"></view>
+      <view class="cro_left_bottom"></view>
+    </view>    
+  </view>
+
+</view>

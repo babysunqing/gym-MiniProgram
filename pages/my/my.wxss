@@ -1,0 +1,103 @@
+/* pages/my/index.wxss */
+.user{
+  width: 100%;
+  padding-bottom: 26rpx;
+  padding-top: 26rpx;
+  padding-left: 36rpx;
+  margin-bottom: 24rpx;
+  background-color: #eab519;
+  color: #fff;
+}
+.my-header{
+  background: #584f60;
+  color: #fff;
+  width:100%;
+  display:inline-block;
+}
+.userImg image{
+  width:126rpx;
+  height:126rpx;
+  border-radius: 50%;
+  float:left;
+  margin-right:40rpx; 
+}
+.userName{
+  font-size: 30rpx;
+  margin-top: 24rpx;
+}
+.user .welcome{
+  font-size: 24rpx;
+  margin-top: 24rpx;
+}
+
+.itemContainer{
+  width: 100%;
+  padding-left: 36rpx;
+  padding-top: 32rpx;
+  padding-bottom: 30rpx;
+  background-color: #fff;
+  border-bottom: 1rpx #f0f0f0 solid;
+  position: relative;
+}
+.itemContainer text{
+  color: #333;
+  font-size: 30rpx;
+}
+.itemContainer .more{
+  color: #b3b3b3;
+  font-size: 24rpx;
+  float: right;
+  margin-right: 36rpx;
+  line-height: 50rpx;
+}
+.itemContainer .icon-card1{
+  font-size:50rpx;
+  color:red;
+  margin-right:20rpx;
+  position: relative;
+  top: 6rpx;
+}
+ .itemContainer .icon-card{
+  font-size:50rpx;
+  color:blue;
+  margin-right:20rpx;
+  position: relative;
+  top: 6rpx;
+} 
+.consume{
+  width: 100%;
+  padding-top: 30rpx; 
+  padding-left: 36rpx;
+  margin-bottom: 24rpx;
+  background-color: #fff;
+}
+.consume .title{
+  color: #b3b3b3;
+  font-size: 22rpx;
+  display: block;
+  margin-bottom: 60rpx;
+}
+.consume .num{
+  font-size: 60rpx;
+  color: #eab519;
+  float: left;
+  margin-right: 10rpx;
+  max-width: 250rpx;
+}
+.itemContainer .message{
+  font-size: 24rpx;
+  color: #b3b3b3;
+  position: absolute;
+  right:90rpx;
+  top: 40rpx;
+}
+.itemContainer .dot{
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 8rpx;
+  background-color: red;
+  display: inline-block;
+  position: absolute;
+  right:70rpx;
+  top: 55rpx;
+}

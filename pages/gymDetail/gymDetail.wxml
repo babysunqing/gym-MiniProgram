@@ -1,0 +1,38 @@
+<view class="mainContainer">
+  <swiper class="carouselFigure" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{ listData.carouselImg }}"  wx:key="item">
+        <swiper-item>
+          <image src="{{ item }}" class="slide-image"/>
+        </swiper-item>
+      </block>
+  </swiper>
+
+  <view bindtap="link" class="titleContainer">
+    <text class="titleText">关于我们</text>
+    <view bindtap="linktoLocation" data-storelatitude="{{listData.storeLatitude}}" data-storelongitude="{{listData.storeLongitude}}">
+      <text class="ourLocation">我们的位置</text>
+      <text class="more iconfont icon-dingwei1"></text>
+    </view>
+  </view>
+  <view class="aboutUsContent">
+    <text class="storeDescribe">{{ listData.storeDescribe }}</text>
+    <!-- <textarea placeholder="请填写健身房相关介绍" placeholder-class="placeholder">{{ listData.storeDescribe }}</textarea> -->
+  </view> 
+  <view bindtap="link" class="titleContainer">
+    <text class="titleText">我们的环境</text>
+    <text class="ourLocation">观看实影录像</text>
+    <text class="more iconfont icon-cplay1"></text>
+  </view>
+
+  <view class="ourEnvContent">
+    <block  wx:for="{{ listData.storeImg }}" wx:key="item">
+      <view class="ourEnvContentCell">
+        <!-- <view class="{{index%2==0?'ourEnvContentCellTextMaskLeft':'ourEnvContentCellTextMaskRight'}}">
+           <text>{{ item.name }}</text> 
+        </view> -->
+       <image src="{{ item.url }}" />
+      </view>
+    </block>
+  </view>
+
+</view>

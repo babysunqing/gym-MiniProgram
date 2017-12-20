@@ -1,0 +1,31 @@
+<!--pages/my.wxml-->
+<view class="container" wx:if="{{authorization}}">
+  <view class="user">
+    <view class="userImg"><image src="{{userInfo.avatarUrl}}" /></view>
+    <view class="userName">{{userInfo.nickName}}</view>
+    <text class="welcome">威尔仕欢迎您加入！</text>
+  </view>
+  <view bindtap="linktoGetCard" class="itemContainer">
+    <text>今日运动</text>
+      <text class="message" wx:if="{{ runData.step / 50 > 20 }}">您有体验券待领取</text>
+      <view class="dot" wx:if="{{ runData.step / 50 > 20 }}">  </view>
+    <text class="more iconfont icon-gengduo"></text>
+  </view>
+  <view class="consume">
+    <text class="title">目前消耗</text>
+    <text class="num">{{ runData.step }}</text>
+    <text style="color: #b3b3b3;font-size: 22rpx;display: block;line-height:106rpx;">步</text>
+  </view>
+  <view bindtap="linktoGetCard" class="itemContainer">
+    <text class="iconfont icon-card1" ></text>
+    <text>运动领券</text>
+      <text class="message" wx:if="{{ runData.step / 50 > 20 }}">您有体验券待领取</text>
+      <view class="dot" wx:if="{{ runData.step / 50 > 20 }}">  </view>
+    <text class="more iconfont icon-gengduo"></text>
+  </view>
+  <view bindtap="linktoMyCardHolder" class="itemContainer">
+    <text class="iconfont icon-card"></text>
+    <text>我的卡包</text>
+    <text class="more iconfont icon-gengduo"></text>
+  </view>
+</view>

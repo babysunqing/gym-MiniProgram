@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "附近健身房",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": "true"
+}
