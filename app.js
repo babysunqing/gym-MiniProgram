@@ -33,7 +33,17 @@ App({
       }
     })
   },
+  onShow: function (options) {
+    if (options.referrerInfo != undefined) {
+      console.log('options.referrerInfo不为undefined')
+      if (options.referrerInfo.extraData != null) {
+        wx.setStorageSync('extraData', true)
+      }else{
+        wx.setStorageSync('extraData', false)
+      }
+    }
+  },
   globalData: {
-    userInfo: null
+    userInfo: null,
   }
 })

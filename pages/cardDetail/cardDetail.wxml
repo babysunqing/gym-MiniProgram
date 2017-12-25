@@ -14,15 +14,10 @@
       <view class="cro_left_bottom"></view>
     </view>
 
-    <view class="right" wx:elif="{{item.ticketinfo.status == '可使用'}}">{{ item.ticketinfo.status}}  
+    <view class="right" wx:else>{{ item.ticketinfo.status}}  
        <view class="cro_left_top"></view>
       <view class="cro_left_bottom"></view> 
-    </view> 
-
-    <view class="right" wx:elif="{{item.ticketinfo.status == day}}">剩{{ item.ticketinfo.status}}天
-      <view class="cro_left_top"></view>
-      <view class="cro_left_bottom"></view>
-    </view> 
+    </view>
 
   </view>
 

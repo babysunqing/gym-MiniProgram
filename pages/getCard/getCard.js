@@ -1,14 +1,34 @@
 const app = getApp()
 Page({
   data:{
-    rulesData:[]
-  },
+    pay: true,
+    rulesData:[],
+    extraData:false
+  }, 
   onLoad: function () {
     this.getdata()
+  },
+  onShow: function () {
+    let that = this
+    var extraData = wx.getStorageSync('extraData')
+    if (extraData == '' || extraData == false){
+      this.extraData =false
+    }else{
+      this.extraData = true
+    }
+    this.setData({
+      extraData: extraData,
+    })
+    console.log('extraData是' + extraData)
   },
   getdata: function () {
      var that = this
      var sessionKey = wx.getStorageSync('sessionKey')
+    //  debugger
+    //  if (wx.getStorageSync('extraData') != ''){     
+    //    var extraData = wx.getStorageSync('extraData')
+    //    console.log(extraData)
+    //  }
      this.setData({
        sessionKey: sessionKey,
      })
@@ -37,10 +57,15 @@ Page({
             var calorie = runData.step/50
             var rulesData = res.data.rules
             for (var i in rulesData) {
-              var beginday = new Date(parseInt(rulesData[i].beginTime) * 1000).toLocaleDateString()
-              var endday = new Date(parseInt(rulesData[i].endTime) * 1000).toLocaleDateString()
-              rulesData[i].beginTime = beginday
-              rulesData[i].endTime = endday
+              // debugger
+              var date = parseInt(new Date().getTime() / 1000)
+              if (rulesData[i].ticketinfo.dateType == 'DATE_TYPE_FIX _TIME_RANGE'){
+                var beginday = new Date(parseInt(rulesData[i].ticketinfo.beginTimeStamp) * 1000).toLocaleDateString()
+                var endday = new Date(parseInt(rulesData[i].ticketinfo.rangeEndTimeStamp) * 1000).toLocaleDateString()
+                rulesData[i].ticketinfo.beginTime = beginday
+                rulesData[i].ticketinfo.endTime = endday
+              }
+              // if (rulesData[i].ticketinfo.dateType == 'date_type_fix_term') {}
             }
             that.setData({
               calorie: calorie,
@@ -51,17 +76,12 @@ Page({
       }
     })
   },
-  getCard: function (e) {
+  //兑换卡券，
+  exchange:function(){
+    //下单
     var that = this
     var openid = wx.getStorageSync('openid')
-    //获取当前点击的卡券的ticketId和兑换卡路里
-    var cardId = e.currentTarget.dataset.index[0].ticketId
-    var needCalorie = e.currentTarget.dataset.index[0].rulesLimit
-    this.setData({
-      openid: openid,
-      cardId: cardId
-    })
-    //下单
+    var needCalorie = wx.getStorageSync('needCalorie')
     wx.request({
       url: 'https://31388152.qcloud.la/welsh/app/rules/place_an_order',
       data: {
@@ -71,78 +91,98 @@ Page({
           openid: openid,
           mch_name: "welsh",
           body: "card",
-          calorie: needCalorie,  // 兑换卡券需要扣除的卡路里
-          return_uri: "pages/myCardHolder/myCardHolder" // 调回小程序的路径
+          calorie: needCalorie, // needCalorie
+          return_uri: "pages/openCard/openCard"
         })
       },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
+      header: {"Content-Type": "application/x-www-form-urlencoded"},
       method: "post",
       success: function (res) {
-        //调起卡路里兑换页
+        var order_no = res.data.order_no
+        that.setData({
+          order_no: order_no
+        })
+        // 下单完成，调起卡路里兑换页
         wx.navigateToMiniProgram({
           appId: res.data.user_pay_appid,
           path: res.data.user_pay_key,
-          envVersion: 'trial', //体验版卡路里插件
-          success(res) { // 打开成功
-            //当前的时间戳
-            var time = parseInt(new Date().getTime() / 1000) + ''
-            //随机字符串
-            var nonce = Math.random().toString(36).substr(2, 15) 
-            //获取签名 
+          envVersion: 'trial',
+          success(res) {
+          }
+        })
+      }
+    })
+  },
+  openCard:function(){
+    //当前的时间戳
+    var time = parseInt(new Date().getTime() / 1000) + ''
+    //随机字符串
+    var nonce = Math.random().toString(36).substr(2, 15)
+    var cardId = wx.getStorageSync('cardId')
+    var openid = wx.getStorageSync('openid')
+    //获取签名 
+    wx.request({
+      url: 'https://31388152.qcloud.la/welsh/app/ticket/getCardSignature',
+      data: {
+        userId: "25a9a5ab-ac91-4c95-bc46-c20d913f7a14",
+        timestamp: time,
+        nonce: nonce,
+        cardId: cardId
+      },
+      header: {"Content-Type": "application/x-www-form-urlencoded"},
+      method: "post",
+      success: function (res) {
+        console.log('获取签名成功')
+        wx.setStorageSync('extraData', false)
+        //添加卡券
+        wx.addCard({
+          cardList: [{
+            cardId: cardId,
+            cardExt: JSON.stringify({
+              signature: res.data.sign,
+              timestamp: parseInt(time),
+              nonce_str: nonce,
+              api_ticket: res.data.cardTicket
+            })
+          }],
+          success: function (res) {
+            var codeObj = res.cardList[0]
+            wx.setStorageSync('extraData', false)
+            console.log('领取成功')
+            // 保存卡券到卡包
             wx.request({
-              url: 'https://31388152.qcloud.la/welsh/app/ticket/getCardSignature',
-              data: {
-                userId: "25a9a5ab-ac91-4c95-bc46-c20d913f7a14",
-                timestamp: time,
-                nonce: nonce,
-                cardId: cardId
-              },
+              url: 'https://31388152.qcloud.la/welsh/app/ticket/save_mycard',
+              method: 'POST',
               header: {
-                "Content-Type": "application/x-www-form-urlencoded"
+                'content-type': 'application/x-www-form-urlencoded'
               },
-              method: "post",
-              success: function (res) {
-                //添加卡券
-                wx.addCard({
-                  cardList: [{
-                    cardId: cardId,
-                    cardExt: JSON.stringify({
-                      signature: res.data.sign,
-                      timestamp: parseInt(time),
-                      nonce_str: nonce,
-                      api_ticket: res.data.cardTicket
-                    })
-                  }],
-                  success: function (res) {
-                    console.log(res)
-                    var codeObj = res.cardList[0]
-                    // 保存卡券到卡包
-                    wx.request({
-                      url: 'https://31388152.qcloud.la/welsh/app/ticket/save_mycard',
-                      method: 'POST',
-                      header: {
-                        'content-type': 'application/x-www-form-urlencoded'
-                      },
-                      data: {
-                        ticketId: codeObj.cardId,
-                        code: codeObj.code,
-                        userId: "25a9a5ab-ac91-4c95-bc46-c20d913f7a14",
-                        openId: openid
-                      },
-                      success(res) {
-                        console.log(res)
-                      }
-                    })
-                  }
-                })
+              data: {
+                ticketId: codeObj.cardId,
+                code: codeObj.code,
+                userId: "25a9a5ab-ac91-4c95-bc46-c20d913f7a14",
+                openId: openid
+              },
+              success(res) {
               }
             })
           }
         })
-        
       }
     })
+  },
+  getCard: function (e) {
+    //获取当前点击的卡券的ticketId和兑换卡路里
+    var cardId = e.currentTarget.dataset.index[0].ticketId
+    var needCalorie = e.currentTarget.dataset.index[0].rulesLimit/20
+
+    wx.setStorageSync('cardId', cardId)
+    wx.setStorageSync('needCalorie', needCalorie)
+    if (this.extraData == false) {
+      this.exchange()
+    }
+    if (this.extraData == true){
+      this.openCard()
+    }
+    
   }
 })
